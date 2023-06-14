@@ -6,7 +6,7 @@ const decompress = async () => {
   const origFilePath =
     HELPER.getDirPath(import.meta.url) + '/files/fileToCompress.txt';
   const compressedFilePath =
-    HELPER.getDirPath(import.meta.url) + '/files/fileToCompress.txt.gz';
+    HELPER.getDirPath(import.meta.url) + '/files/archive.gz';
   const gz = createUnzip();
 
   createReadStream(compressedFilePath)
