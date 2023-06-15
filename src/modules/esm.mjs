@@ -2,16 +2,14 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
-import { execFile } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 const random = Math.random();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-execFile('node', [`${__dirname}/files/c.js`], (_, r) => {
-  console.log(r);
-});
+execFileSync('node', [`${__dirname}/files/c.js`], {'stdio': 'inherit'});
 
 let unknownObject;
 
