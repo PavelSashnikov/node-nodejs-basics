@@ -7,7 +7,7 @@ const calculateHash = async () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const fileBuffer = readFileSync(
-    __dirname + '/files/fileToCalculateHashFor.txt',
+    path.join(__dirname, 'files', 'fileToCalculateHashFor.txt'),
     () => {}
   );
   const hashSum = createHash('sha256');

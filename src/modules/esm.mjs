@@ -9,7 +9,9 @@ const random = Math.random();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-execFileSync('node', [`${__dirname}/files/c.js`], {'stdio': 'inherit'});
+execFileSync('node', [path.join(__dirname, 'files', 'c.js')], {
+  stdio: 'inherit',
+});
 
 let unknownObject;
 

@@ -1,6 +1,7 @@
 import { cpus } from 'os';
 import { Worker } from 'worker_threads';
 import { HELPER } from '../fs/modules/helpers.mjs';
+import { join } from 'path';
 
 const parseResponse = (res) => {
   const map = {
@@ -18,7 +19,7 @@ const parseResponse = (res) => {
 };
 
 const performCalculations = async () => {
-  const workerFilePath = HELPER.getDirPath(import.meta.url) + '/worker.js';
+  const workerFilePath = join(HELPER.getDirPath(import.meta.url), 'worker.js');
   const cpuCount = cpus().length;
   console.log(cpuCount);
   const workers = [];
