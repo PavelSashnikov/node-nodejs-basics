@@ -1,6 +1,11 @@
+import { fork } from 'child_process';
+import { HELPER } from '../fs/modules/helpers.mjs';
+
 const spawnChildProcess = async (args) => {
-    // Write your code here
+  const filePath = HELPER.getDirPath(import.meta.url) + '/files/script.js';
+  //fork uses IPC by default (see documentation)
+  fork(filePath, args);
 };
 
 // Put your arguments in function call to test this functionality
-spawnChildProcess( /* [someArgument1, someArgument2, ...] */);
+spawnChildProcess(['some', '-arg']);
